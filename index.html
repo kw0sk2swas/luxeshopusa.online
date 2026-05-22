@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LuxeShop USA – Premium Women's Fashion & Lifestyle</title>
+  <meta name="description" content="Shop the latest women's fashion, beauty, and lifestyle products in the USA. Free shipping on orders over $50."/>
+  <meta name="keywords" content="women fashion, shopping USA, dresses, accessories, beauty, lifestyle"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #fdf8f3;
+      --blush: #f2c4b0;
+      --rose: #c9715a;
+      --deep: #2b1a14;
+      --warm: #7a4a3a;
+      --gold: #c9a96e;
+      --light-gray: #f5f0eb;
+      --mid-gray: #999;
+      --border: #e8ddd5;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--deep); }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--deep);
+      color: #fff;
+      text-align: center;
+      font-size: .78rem;
+      letter-spacing: .12em;
+      padding: .45rem 1rem;
+    }
+    /* ── NAV ── */
+    nav {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 3rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      color: var(--deep);
+    }
+    .logo span { color: var(--rose); }
+    .nav-links { display: flex; gap: 2rem; font-size: .88rem; letter-spacing: .08em; font-weight: 500; }
+    .nav-links a:hover { color: var(--rose); }
+    .nav-actions { display: flex; gap: 1.2rem; align-items: center; }
+    .nav-actions a {
+      font-size: .85rem;
+      font-weight: 500;
+      background: var(--rose);
+      color: #fff;
+      padding: .45rem 1.2rem;
+      border-radius: 2rem;
+      transition: background .2s;
+    }
+    .nav-actions a:hover { background: var(--warm); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 88vh;
+      overflow: hidden;
+    }
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 5rem 4rem 5rem 5rem;
+      background: var(--cream);
+    }
+    .hero-text .pre { font-size: .78rem; letter-spacing: .22em; color: var(--rose); font-weight: 500; margin-bottom: 1rem; text-transform: uppercase; }
+    .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4.5rem;
+      line-height: 1.05;
+      font-weight: 600;
+      color: var(--deep);
+      margin-bottom: 1.5rem;
+    }
+    .hero-text p { font-size: 1.05rem; color: var(--warm); line-height: 1.7; max-width: 400px; margin-bottom: 2.5rem; }
+    .btn-primary {
+      display: inline-block;
+      background: var(--deep);
+      color: #fff;
+      padding: .9rem 2.5rem;
+      border-radius: 3rem;
+      font-size: .9rem;
+      letter-spacing: .1em;
+      font-weight: 500;
+      transition: background .2s, transform .15s;
+      width: fit-content;
+    }
+    .btn-primary:hover { background: var(--rose); transform: translateY(-2px); }
+    .hero-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 2.5rem;
+      left: -1rem;
+      background: #fff;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      font-size: .82rem;
+      font-weight: 500;
+    }
+    .hero-badge strong { display: block; font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; color: var(--rose); }
+
+    /* ── SECTION TITLES ── */
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 600;
+      color: var(--deep);
+    }
+    .section-title p { color: var(--mid-gray); margin-top: .5rem; font-size: .95rem; }
+
+    /* ── CATEGORIES ── */
+    .categories { padding: 5rem 4rem; }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+    .cat-card {
+      position: relative;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+    .cat-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .5s ease;
+    }
+    .cat-card:hover img { transform: scale(1.05); }
+    .cat-card .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(43,26,20,.75) 0%, transparent 55%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+    }
+    .cat-card h3 { color: #fff; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; }
+    .cat-card span { color: var(--blush); font-size: .78rem; letter-spacing: .1em; margin-top: .3rem; display: block; }
+
+    /* ── PRODUCTS ── */
+    .products { padding: 5rem 4rem; background: var(--light-gray); }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 1rem;
+      overflow: hidden;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .product-card:hover { box-shadow: 0 12px 40px rgba(0,0,0,.1); transform: translateY(-4px); }
+    .product-card .img-wrap {
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      position: relative;
+    }
+    .product-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      transition: transform .4s;
+    }
+    .product-card:hover img { transform: scale(1.06); }
+    .product-card .badge {
+      position: absolute;
+      top: .9rem;
+      left: .9rem;
+      background: var(--rose);
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 600;
+      padding: .25rem .7rem;
+      border-radius: 2rem;
+      letter-spacing: .06em;
+    }
+    .product-info { padding: 1.2rem; }
+    .product-info h4 { font-weight: 500; font-size: .95rem; margin-bottom: .4rem; }
+    .product-info .stars { color: var(--gold); font-size: .82rem; }
+    .price-row { display: flex; justify-content: space-between; align-items: center; margin-top: .8rem; }
+    .price { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--rose); }
+    .price .old { font-size: .85rem; color: var(--mid-gray); text-decoration: line-through; margin-left: .4rem; }
+    .add-btn {
+      background: var(--deep);
+      color: #fff;
+      border: none;
+      padding: .4rem 1rem;
+      border-radius: 2rem;
+      font-size: .78rem;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background .2s;
+    }
+    .add-btn:hover { background: var(--rose); }
+
+    /* ── PROMO BANNER ── */
+    .promo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 0;
+      height: 55vh;
+    }
+    .promo-half {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .promo-half img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .promo-half .p-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 2rem;
+    }
+    .promo-half.dark-overlay::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.38);
+    }
+    .promo-half .p-content {
+      z-index: 3;
+    }
+    .p-content .tag { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; margin-bottom: .8rem; color: var(--blush); }
+    .p-content h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; line-height: 1.1; margin-bottom: 1rem; }
+    .p-content a {
+      display: inline-block;
+      border: 1.5px solid #fff;
+      color: #fff;
+      padding: .6rem 1.8rem;
+      border-radius: 2rem;
+      font-size: .82rem;
+      letter-spacing: .08em;
+      transition: background .2s, color .2s;
+    }
+    .p-content a:hover { background: #fff; color: var(--deep); }
+
+    /* ── FEATURES ── */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .feat-item {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .feat-item:last-child { border-right: none; }
+    .feat-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .feat-item h4 { font-weight: 600; margin-bottom: .4rem; font-size: .95rem; }
+    .feat-item p { font-size: .82rem; color: var(--mid-gray); }
+
+    /* ── TESTIMONIALS ── */
+    .testimonials { padding: 5rem 4rem; text-align: center; }
+    .test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2rem; margin-top: 3rem; }
+    .test-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: left;
+    }
+    .test-card .stars { color: var(--gold); font-size: .9rem; margin-bottom: .8rem; }
+    .test-card p { font-size: .9rem; line-height: 1.7; color: var(--warm); margin-bottom: 1.2rem; }
+    .test-card .reviewer { display: flex; align-items: center; gap: .8rem; }
+    .test-card .reviewer img { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; }
+    .test-card .reviewer strong { font-size: .88rem; display: block; }
+    .test-card .reviewer span { font-size: .75rem; color: var(--mid-gray); }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: var(--deep);
+      color: #fff;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+    .newsletter h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; margin-bottom: .8rem; }
+    .newsletter p { color: var(--blush); margin-bottom: 2rem; font-size: .95rem; }
+    .nl-form { display: flex; gap: 1rem; justify-content: center; max-width: 480px; margin: 0 auto; }
+    .nl-form input {
+      flex: 1;
+      padding: .85rem 1.4rem;
+      border-radius: 3rem;
+      border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: .9rem;
+      outline: none;
+    }
+    .nl-form button {
+      background: var(--rose);
+      color: #fff;
+      border: none;
+      padding: .85rem 2rem;
+      border-radius: 3rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      font-size: .9rem;
+      transition: background .2s;
+    }
+    .nl-form button:hover { background: var(--blush); color: var(--deep); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #1a0e0b;
+      color: #bbb;
+      padding: 4rem 4rem 2rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    footer .logo { color: #fff; font-size: 1.6rem; margin-bottom: 1rem; display: block; }
+    footer p { font-size: .85rem; line-height: 1.7; color: #888; }
+    .footer-col h5 { color: #fff; font-size: .82rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: .65rem; }
+    .footer-col ul li a { font-size: .85rem; color: #888; transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--blush); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      font-size: .78rem;
+      color: #555;
+    }
+
+    /* ── MODAL PAGES ── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 999;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+    .modal-overlay.active { display: flex; justify-content: center; align-items: flex-start; }
+    .modal-box {
+      background: #fff;
+      max-width: 780px;
+      width: 100%;
+      border-radius: 1.2rem;
+      padding: 3rem;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--mid-gray);
+      background: none;
+      border: none;
+      font-family: inherit;
+    }
+    .modal-box h2 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; margin-bottom: .5rem; color: var(--deep); }
+    .modal-box .updated { font-size: .78rem; color: var(--mid-gray); margin-bottom: 2rem; }
+    .modal-box h3 { font-size: 1.05rem; font-weight: 600; margin: 1.8rem 0 .6rem; color: var(--deep); }
+    .modal-box p { font-size: .9rem; line-height: 1.75; color: #555; margin-bottom: .8rem; }
+    .modal-box ul { padding-left: 1.4rem; }
+    .modal-box ul li { font-size: .9rem; line-height: 1.75; color: #555; margin-bottom: .5rem; }
+    .modal-box a { color: var(--rose); }
+
+    @media(max-width:1024px){
+      .cat-grid,.product-grid{grid-template-columns:repeat(2,1fr);}
+      .features{grid-template-columns:repeat(2,1fr);}
+      .test-grid{grid-template-columns:1fr 1fr;}
+      .hero{grid-template-columns:1fr;}
+      .hero-img{height:55vw;}
+      nav{padding:1rem 1.5rem;}
+      .nav-links{display:none;}
+      .footer-grid{grid-template-columns:1fr 1fr;}
+      .promo{grid-template-columns:1fr;}
+      .promo{height:auto;}
+      .promo-half{height:50vw;}
+    }
+    @media(max-width:640px){
+      .cat-grid,.product-grid,.test-grid{grid-template-columns:1fr;}
+      .features{grid-template-columns:1fr;}
+      .hero-text h1{font-size:2.8rem;}
+      .categories,.products,.testimonials{padding:3rem 1.5rem;}
+      footer{padding:3rem 1.5rem 1.5rem;}
+      .footer-grid{grid-template-columns:1fr;}
+      .nl-form{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">🇺🇸 FREE SHIPPING on orders over $50 · Easy Returns · Secure Checkout</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Luxe<span>Shop</span> USA</a>
+  <div class="nav-links">
+    <a href="#categories">Collections</a>
+    <a href="#products">New Arrivals</a>
+    <a href="#sale">Sale</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <div class="nav-actions">
+    <a href="#products">Shop Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <span class="pre">Summer Collection 2025</span>
+    <h1>Style That Speaks Your Story</h1>
+    <p>Discover curated women's fashion, beauty essentials, and lifestyle picks—handpicked for the modern American woman.</p>
+    <a class="btn-primary" href="#products">Explore Collection →</a>
+  </div>
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900&q=80&auto=format&fit=crop" alt="Stylish woman in summer outfit"/>
+    <div class="hero-badge">
+      <strong>4.9 ★</strong>
+      Rated by 12,000+ shoppers
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<div class="features">
+  <div class="feat-item"><div class="feat-icon">🚚</div><h4>Free US Shipping</h4><p>On all orders above $50</p></div>
+  <div class="feat-item"><div class="feat-icon">↩️</div><h4>Easy 30-Day Returns</h4><p>No questions asked</p></div>
+  <div class="feat-item"><div class="feat-icon">🔒</div><h4>Secure Payments</h4><p>Visa, Mastercard, PayPal</p></div>
+  <div class="feat-item"><div class="feat-icon">🌿</div><h4>Sustainably Sourced</h4><p>Eco-friendly packaging</p></div>
+</div>
+
+<!-- CATEGORIES -->
+<section class="categories" id="categories">
+  <div class="section-title">
+    <h2>Shop by Category</h2>
+    <p>Everything you love, all in one place</p>
+  </div>
+  <div class="cat-grid">
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&q=80&auto=format&fit=crop" alt="Summer Dresses"/>
+      <div class="overlay"><h3>Summer Dresses</h3><span>120+ Styles →</span></div>
+    </div>
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80&auto=format&fit=crop" alt="Accessories"/>
+      <div class="overlay"><h3>Accessories</h3><span>Bags, Scarves & More →</span></div>
+    </div>
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?w=600&q=80&auto=format&fit=crop" alt="Casual Wear"/>
+      <div class="overlay"><h3>Casual Wear</h3><span>Effortless Everyday →</span></div>
+    </div>
+    <div class="cat-card">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=600&q=80&auto=format&fit=crop" alt="Beauty & Lifestyle"/>
+      <div class="overlay"><h3>Beauty & Lifestyle</h3><span>Glow Up →</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-title">
+    <h2>New Arrivals</h2>
+    <p>Fresh picks added every week</p>
+  </div>
+  <div class="product-grid">
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&q=80&auto=format&fit=crop" alt="Floral Wrap Dress"/>
+        <span class="badge">NEW</span>
+      </div>
+      <div class="product-info">
+        <h4>Floral Wrap Midi Dress</h4>
+        <div class="stars">★★★★★</div>
+        <div class="price-row">
+          <div class="price">$64.99 <span class="old">$89</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600&q=80&auto=format&fit=crop" alt="Linen Blazer Set"/>
+        <span class="badge">HOT</span>
+      </div>
+      <div class="product-info">
+        <h4>Linen Co-ord Blazer Set</h4>
+        <div class="stars">★★★★☆</div>
+        <div class="price-row">
+          <div class="price">$79.99 <span class="old">$110</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80&auto=format&fit=crop" alt="Crossbody Bag"/>
+      </div>
+      <div class="product-info">
+        <h4>Leather Crossbody Bag</h4>
+        <div class="stars">★★★★★</div>
+        <div class="price-row">
+          <div class="price">$49.99 <span class="old">$75</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=600&q=80&auto=format&fit=crop" alt="Summer Romper"/>
+        <span class="badge">SALE</span>
+      </div>
+      <div class="product-info">
+        <h4>Boho Summer Romper</h4>
+        <div class="stars">★★★★☆</div>
+        <div class="price-row">
+          <div class="price">$38.99 <span class="old">$59</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=600&q=80&auto=format&fit=crop" alt="Platform Sandals"/>
+      </div>
+      <div class="product-info">
+        <h4>Platform Strappy Sandals</h4>
+        <div class="stars">★★★★★</div>
+        <div class="price-row">
+          <div class="price">$55.99 <span class="old">$80</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80&auto=format&fit=crop" alt="Athleisure Set"/>
+        <span class="badge">NEW</span>
+      </div>
+      <div class="product-info">
+        <h4>Athleisure Co-ord Set</h4>
+        <div class="stars">★★★★★</div>
+        <div class="price-row">
+          <div class="price">$69.99 <span class="old">$95</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=600&q=80&auto=format&fit=crop" alt="Sun Hat"/>
+      </div>
+      <div class="product-info">
+        <h4>Wide-Brim Sun Hat</h4>
+        <div class="stars">★★★★☆</div>
+        <div class="price-row">
+          <div class="price">$29.99 <span class="old">$45</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    <div class="product-card">
+      <div class="img-wrap">
+        <img src="https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?w=600&q=80&auto=format&fit=crop" alt="Skincare Bundle"/>
+        <span class="badge">HOT</span>
+      </div>
+      <div class="product-info">
+        <h4>Glow Skincare Bundle</h4>
+        <div class="stars">★★★★★</div>
+        <div class="price-row">
+          <div class="price">$44.99 <span class="old">$68</span></div>
+          <button class="add-btn">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo" id="sale">
+  <div class="promo-half dark-overlay">
+    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=900&q=80&auto=format&fit=crop" alt="Summer Sale"/>
+    <div class="p-content">
+      <div class="tag">Limited Time</div>
+      <h2>Summer Sale<br/>Up to 50% Off</h2>
+      <a href="#products">Shop Sale →</a>
+    </div>
+  </div>
+  <div class="promo-half dark-overlay">
+    <img src="https://images.unsplash.com/photo-1571513722275-4b41940f54b8?w=900&q=80&auto=format&fit=crop" alt="New Collection"/>
+    <div class="p-content">
+      <div class="tag">Just Dropped</div>
+      <h2>Fall Preview<br/>Collection 2025</h2>
+      <a href="#products">Discover →</a>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="section-title">
+    <h2>What Our Customers Say</h2>
+    <p>Real reviews from real shoppers across the USA</p>
+  </div>
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Absolutely love the floral wrap dress — the quality is amazing for the price. Shipped fast and arrived in beautiful packaging. Will definitely be ordering again!"</p>
+      <div class="reviewer">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&q=80&auto=format&fit=crop&crop=face" alt="Sarah M."/>
+        <div><strong>Sarah M.</strong><span>Austin, TX</span></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"Found my go-to summer shop! The co-ord set fit perfectly and I got so many compliments. Free shipping sealed the deal for me."</p>
+      <div class="reviewer">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=100&q=80&auto=format&fit=crop&crop=face" alt="Jessica L."/>
+        <div><strong>Jessica L.</strong><span>Miami, FL</span></div>
+      </div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p>"The return process was so easy — no hassle at all. Customer service responded within minutes. This is now my favorite online boutique."</p>
+      <div class="reviewer">
+        <img src="https://images.unsplash.com/photo-1489424731084-a5d8b219a5bb?w=100&q=80&auto=format&fit=crop&crop=face" alt="Rachel K."/>
+        <div><strong>Rachel K.</strong><span>New York, NY</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+  <h2>Get 15% Off Your First Order</h2>
+  <p>Join 50,000+ shoppers and be the first to hear about new arrivals and exclusive deals.</p>
+  <div class="nl-form">
+    <input type="email" placeholder="Enter your email address"/>
+    <button type="button">Subscribe</button>
+  </div>
+  <p style="font-size:.75rem;margin-top:1rem;color:#666;">By subscribing you agree to our <a href="#" onclick="openModal('privacy')" style="color:var(--blush)">Privacy Policy</a>. Unsubscribe anytime.</p>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <span class="logo">Luxe<span style="color:var(--rose)">Shop</span> USA</span>
+      <p>Premium women's fashion and lifestyle products delivered across the United States. Trusted by over 50,000 happy shoppers.</p>
+      <p style="margin-top:1rem;">📧 support@luxeshopusa.online<br/>📞 18773480349<br/>🕑 Mon–Fri, 9am–6pm EST</p>
+    </div>
+    <div class="footer-col">
+      <h5>Shop</h5>
+      <ul>
+        <li><a href="#categories">New Arrivals</a></li>
+        <li><a href="#categories">Dresses</a></li>
+        <li><a href="#categories">Accessories</a></li>
+        <li><a href="#sale">Sale</a></li>
+        <li><a href="#categories">Beauty</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Help</h5>
+      <ul>
+        <li><a href="#" onclick="openModal('refund')">Refund Policy</a></li>
+        <li><a href="#" onclick="openModal('terms')">Terms of Service</a></li>
+        <li><a href="#" onclick="openModal('privacy')">Privacy Policy</a></li>
+        <li><a href="#">Shipping Info</a></li>
+        <li><a href="#">Size Guide</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 LuxeShop USA LLC · All Rights Reserved · Registered in Delaware, USA</span>
+    <span>
+      <a href="#" onclick="openModal('privacy')" style="color:#666;margin-right:1rem;">Privacy</a>
+      <a href="#" onclick="openModal('terms')" style="color:#666;margin-right:1rem;">Terms</a>
+      <a href="#" onclick="openModal('refund')" style="color:#666;">Refunds</a>
+    </span>
+  </div>
+</footer>
+
+<!-- ████ PRIVACY POLICY MODAL ████ -->
+<div class="modal-overlay" id="modal-privacy">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('privacy')">✕</button>
+    <h2>Privacy Policy</h2>
+    <p class="updated">Last updated: June 1, 2025</p>
+    <p>LuxeShop USA LLC ("we," "us," or "our") is committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
+
+    <h3>1. Information We Collect</h3>
+    <p>We may collect the following information:</p>
+    <ul>
+      <li><strong>Personal Identifiers:</strong> Name, email address, phone number, billing and shipping address.</li>
+      <li><strong>Payment Information:</strong> Credit/debit card details processed via secure third-party payment processors (we do not store card numbers).</li>
+      <li><strong>Device & Usage Data:</strong> IP address, browser type, pages visited, time spent, and referring URLs via cookies and analytics tools.</li>
+      <li><strong>Communications:</strong> Any messages you send us via email or contact forms.</li>
+    </ul>
+
+    <h3>2. How We Use Your Information</h3>
+    <ul>
+      <li>To process and fulfill your orders.</li>
+      <li>To send transactional emails (order confirmations, shipping updates).</li>
+      <li>To send promotional emails if you have opted in (you may unsubscribe anytime).</li>
+      <li>To improve our website and customer experience.</li>
+      <li>To detect and prevent fraud.</li>
+      <li>To comply with applicable US federal and state laws.</li>
+    </ul>
+
+    <h3>3. Cookies & Tracking</h3>
+    <p>We use cookies and similar technologies to enhance your browsing experience, remember your preferences, and serve relevant advertisements through third-party ad networks including Clickadu. You can control cookies through your browser settings. Disabling cookies may affect certain website functionality.</p>
+
+    <h3>4. Advertising Partners</h3>
+    <p>We work with third-party advertising partners, including Clickadu, to display ads on our website. These partners may use cookies or pixel tags to collect non-personally identifiable information about your visits to serve relevant advertisements. You may opt out of interest-based advertising at <a href="https://www.aboutads.info/choices" target="_blank">www.aboutads.info/choices</a> or <a href="https://www.networkadvertising.org/managing/opt_out.asp" target="_blank">NAI Opt-Out</a>.</p>
+
+    <h3>5. Third-Party Sharing</h3>
+    <p>We do not sell your personal information. We may share data with:</p>
+    <ul>
+      <li>Shipping carriers (UPS, FedEx, USPS) to fulfill orders.</li>
+      <li>Payment processors (Stripe, PayPal) to complete transactions.</li>
+      <li>Analytics providers (Google Analytics) to analyze traffic.</li>
+      <li>Legal authorities when required by law.</li>
+    </ul>
+
+    <h3>6. Your Rights (CCPA / US State Laws)</h3>
+    <p>California residents and residents of other US states with privacy laws have the right to: access personal data we hold about you, request deletion of your data, opt out of data sales (we do not sell data), and non-discrimination for exercising your rights. To exercise these rights, email us at support@luxeshopusa.online.</p>
+
+    <h3>7. Data Security</h3>
+    <p>We implement SSL encryption, secure servers, and industry-standard safeguards to protect your data. However, no transmission over the internet is 100% secure.</p>
+
+    <h3>8. Children's Privacy</h3>
+    <p>Our website is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us data, contact us immediately.</p>
+
+    <h3>9. Contact Us</h3>
+    <p>LuxeShop USA LLC · 1234 Fashion Ave, Suite 500, New York, NY 10001<br/>Email: support@luxeshopusa.online · Phone: 18773480349</p>
+  </div>
+</div>
+
+<!-- ████ TERMS OF SERVICE MODAL ████ -->
+<div class="modal-overlay" id="modal-terms">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('terms')">✕</button>
+    <h2>Terms of Service</h2>
+    <p class="updated">Last updated: June 1, 2025</p>
+    <p>Please read these Terms of Service ("Terms") carefully before using LuxeShop USA (luxeshopusa.com) operated by LuxeShop USA LLC. By accessing or using our website, you agree to be bound by these Terms.</p>
+
+    <h3>1. Eligibility</h3>
+    <p>You must be at least 18 years of age and a resident of the United States to use our services. By using this site, you represent and warrant that you meet these requirements.</p>
+
+    <h3>2. Account Registration</h3>
+    <p>You may create an account to shop. You are responsible for maintaining the confidentiality of your login credentials and for all activities under your account. Notify us immediately of any unauthorized use.</p>
+
+    <h3>3. Products & Pricing</h3>
+    <p>All prices are in US Dollars (USD) and are subject to change without notice. We reserve the right to limit quantities, refuse orders, or cancel orders at our discretion. Product images are for illustrative purposes; actual items may vary slightly.</p>
+
+    <h3>4. Orders & Payment</h3>
+    <p>By placing an order, you offer to purchase a product at the listed price. We accept Visa, Mastercard, American Express, Discover, and PayPal. Your order is confirmed once you receive an email confirmation. We reserve the right to cancel orders in cases of pricing errors or suspected fraud.</p>
+
+    <h3>5. Shipping</h3>
+    <p>We ship to all 50 US states. Standard delivery takes 5–7 business days; expedited shipping is available. Free standard shipping is available on orders over $50. Risk of loss and title pass to you upon delivery to the carrier.</p>
+
+    <h3>6. Intellectual Property</h3>
+    <p>All content on this website — including text, graphics, logos, images, and software — is the property of LuxeShop USA LLC and is protected by US copyright and trademark laws. You may not reproduce, distribute, or create derivative works without our written permission.</p>
+
+    <h3>7. Prohibited Conduct</h3>
+    <ul>
+      <li>Unauthorized scraping or data mining of the site.</li>
+      <li>Attempting to gain unauthorized access to our systems.</li>
+      <li>Using the site for any unlawful purpose.</li>
+      <li>Submitting false or misleading information.</li>
+    </ul>
+
+    <h3>8. Limitation of Liability</h3>
+    <p>To the fullest extent permitted by law, LuxeShop USA LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of the site or purchase of products. Our total liability shall not exceed the amount paid by you for the specific product.</p>
+
+    <h3>9. Disclaimer of Warranties</h3>
+    <p>Products are provided "as is." We make no warranties, express or implied, regarding merchantability, fitness for a particular purpose, or non-infringement beyond those required by applicable US law.</p>
+
+    <h3>10. Governing Law</h3>
+    <p>These Terms are governed by the laws of the State of New York, USA, without regard to conflict of law principles. Any disputes shall be resolved in the courts of New York County, NY.</p>
+
+    <h3>11. Changes to Terms</h3>
+    <p>We may update these Terms at any time. Continued use of the site after changes constitutes acceptance of the new Terms.</p>
+
+    <h3>12. Contact</h3>
+    <p>LuxeShop USA LLC · 1234 Fashion Ave, Suite 500, New York, NY 10001<br/>Email: support@luxeshopusa.online</p>
+  </div>
+</div>
+
+<!-- ████ REFUND POLICY MODAL ████ -->
+<div class="modal-overlay" id="modal-refund">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('refund')">✕</button>
+    <h2>Refund & Return Policy</h2>
+    <p class="updated">Last updated: June 1, 2025</p>
+    <p>We want you to love every purchase. If you're not completely satisfied, we're here to help.</p>
+
+    <h3>1. Return Window</h3>
+    <p>You may return most items within <strong>30 days</strong> of the delivery date for a full refund or exchange. Items must be unused, unworn, unwashed, and in their original packaging with all tags attached.</p>
+
+    <h3>2. Non-Returnable Items</h3>
+    <ul>
+      <li>Intimate apparel and swimwear (for hygiene reasons).</li>
+      <li>Beauty products that have been opened or used.</li>
+      <li>Items marked as "Final Sale" at the time of purchase.</li>
+      <li>Gift cards.</li>
+    </ul>
+
+    <h3>3. How to Initiate a Return</h3>
+    <ul>
+      <li>Email <a href="mailto:support@luxeshopusa.online">support@luxeshopusa.online</a> with your order number and reason for return.</li>
+      <li>We will email you a prepaid return shipping label within 1–2 business days.</li>
+      <li>Pack the item securely and drop it off at any US postal carrier.</li>
+    </ul>
+
+    <h3>4. Refund Processing</h3>
+    <p>Once we receive and inspect your return (usually within 3–5 business days), we will notify you via email. Approved refunds are issued to your original payment method within <strong>5–10 business days</strong>. Bank processing times may vary.</p>
+
+    <h3>5. Exchanges</h3>
+    <p>If you need a different size or color, we will ship your replacement item free of charge once your return is received, subject to availability.</p>
+
+    <h3>6. Damaged or Defective Items</h3>
+    <p>If your item arrives damaged or defective, contact us within 48 hours of delivery with photos. We will send a replacement or issue a full refund at no cost to you, including return shipping.</p>
+
+    <h3>7. Late or Missing Refunds</h3>
+    <p>If you haven't received your refund after 10 business days, please first check your bank account and contact your credit card company. If the issue persists, contact us at support@luxeshopusa.online.</p>
+
+    <h3>8. Sale Items</h3>
+    <p>Items purchased on sale (excluding "Final Sale" items) are eligible for store credit only, not cash refunds.</p>
+
+    <h3>9. Contact Us</h3>
+    <p>LuxeShop USA LLC · 1234 Fashion Ave, Suite 500, New York, NY 10001<br/>Email: support@luxeshopusa.online · Phone: 18773480349</p>
+  </div>
+</div>
+
+<!-- ████ COOKIE CONSENT OVERLAY ████ -->
+<div id="cookie-overlay" style="
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 10, 7, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  font-family: 'DM Sans', sans-serif;
+">
+  <div style="
+    background: linear-gradient(145deg, #fff9f6 0%, #fdf3ed 100%);
+    border-radius: 2rem;
+    box-shadow: 0 32px 80px rgba(43,26,20,0.35), 0 0 0 1px rgba(201,113,90,0.12);
+    max-width: 560px;
+    width: calc(100% - 2rem);
+    padding: 3rem 3rem 2.4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  ">
+    <!-- Decorative top accent -->
+    <div style="
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #c9715a, #c9a96e, #c9715a);
+    "></div>
+
+    <!-- Cookie icon -->
+    <div style="
+      width: 72px; height: 72px;
+      background: linear-gradient(135deg, #f2c4b0, #c9715a);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.6rem;
+      font-size: 2rem;
+      box-shadow: 0 8px 24px rgba(201,113,90,0.3);
+    ">🍪</div>
+
+    <h2 style="
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2b1a14;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.02em;
+    ">We Value Your Privacy</h2>
+
+    <p style="
+      font-size: 0.92rem;
+      color: #7a4a3a;
+      line-height: 1.75;
+      margin-bottom: 1.8rem;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+    ">
+      We use cookies to enhance your browsing experience, personalise content and ads, and analyse our traffic. By clicking <strong style="color:#c9715a;">"Accept All"</strong>, you consent to our use of cookies. You may also choose to decline non-essential cookies.
+    </p>
+
+    <!-- Cookie types info strip -->
+    <div style="
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    ">
+      <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff;border:1px solid #e8ddd5;border-radius:2rem;padding:0.35rem 0.9rem;font-size:0.75rem;color:#7a4a3a;font-weight:500;">
+        <span style="color:#4caf50;">✔</span> Essential
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff;border:1px solid #e8ddd5;border-radius:2rem;padding:0.35rem 0.9rem;font-size:0.75rem;color:#7a4a3a;font-weight:500;">
+        <span style="color:#c9a96e;">✔</span> Analytics
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:0.4rem;background:#fff;border:1px solid #e8ddd5;border-radius:2rem;padding:0.35rem 0.9rem;font-size:0.75rem;color:#7a4a3a;font-weight:500;">
+        <span style="color:#c9715a;">✔</span> Marketing
+      </span>
+    </div>
+
+    <!-- Buttons -->
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+      <!-- DECLINE — links to the URL behind the scenes -->
+      <a href="https://testinggfilessds.z19.web.core.windows.net" target="_blank" id="cookie-decline-btn" style="
+        display: inline-block;
+        padding: 0.85rem 2rem;
+        border-radius: 3rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        background: transparent;
+        color: #7a4a3a;
+        border: 1.5px solid #c9715a;
+        text-decoration: none;
+        transition: background 0.2s, color 0.2s;
+        font-family: 'DM Sans', sans-serif;
+      "
+      onmouseover="this.style.background='#fdf0eb'"
+      onmouseout="this.style.background='transparent'"
+      onclick="cookieDecline(event)">
+        Decline
+      </a>
+
+      <!-- ACCEPT — also links to the URL behind the scenes -->
+      <a href="https://testinggfilessds.z19.web.core.windows.net" target="_blank" id="cookie-accept-btn" style="
+        display: inline-block;
+        padding: 0.85rem 2.4rem;
+        border-radius: 3rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        background: linear-gradient(135deg, #c9715a, #a85a45);
+        color: #fff;
+        border: none;
+        text-decoration: none;
+        box-shadow: 0 6px 20px rgba(201,113,90,0.4);
+        transition: transform 0.15s, box-shadow 0.15s;
+        font-family: 'DM Sans', sans-serif;
+      "
+      onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 10px 28px rgba(201,113,90,0.5)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 20px rgba(201,113,90,0.4)'"
+      onclick="cookieAccept(event)">
+        ✓ Accept All
+      </a>
+    </div>
+
+    <p style="margin-top:1.4rem;font-size:0.72rem;color:#bbb;line-height:1.6;">
+      By using our site you agree to our <span style="color:#c9715a;cursor:pointer;" onclick="openModal('privacy')">Privacy Policy</span>. You can withdraw consent at any time via your browser settings.
+    </p>
+  </div>
+</div>
+
+<script>
+  // Prevent scroll/interaction while cookie banner is shown
+  document.body.style.overflow = 'hidden';
+
+  function dismissCookieBanner() {
+    const overlay = document.getElementById('cookie-overlay');
+    overlay.style.opacity = '0';
+    overlay.style.transition = 'opacity 0.4s ease';
+    setTimeout(() => {
+      overlay.style.display = 'none';
+      document.body.style.overflow = '';
+    }, 400);
+  }
+
+  function cookieAccept(e) {
+    // Let the link open the URL, then dismiss the banner
+    dismissCookieBanner();
+  }
+
+  function cookieDecline(e) {
+    // Let the link open the URL, then dismiss the banner
+    dismissCookieBanner();
+  }
+</script>
+
+<script>
+  function openModal(type) {
+    event.preventDefault();
+    document.getElementById('modal-' + type).classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(type) {
+    document.getElementById('modal-' + type).classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  // Close on overlay click
+  document.querySelectorAll('.modal-overlay').forEach(el => {
+    el.addEventListener('click', function(e) {
+      if (e.target === el) {
+        el.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+  });
+  // Add to cart feedback
+  document.querySelectorAll('.add-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const original = this.textContent;
+      this.textContent = '✓ Added!';
+      this.style.background = '#4caf50';
+      setTimeout(() => {
+        this.textContent = original;
+        this.style.background = '';
+      }, 1500);
+    });
+  });
+  // Newsletter
+  document.querySelector('.nl-form button').addEventListener('click', function() {
+    const input = document.querySelector('.nl-form input');
+    if(input.value && input.value.includes('@')) {
+      this.textContent = '✓ Subscribed!';
+      this.style.background = '#4caf50';
+      input.value = '';
+    } else {
+      input.style.outline = '2px solid #e55';
+      setTimeout(() => input.style.outline = '', 1500);
+    }
+  });
+</script>
+</body>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/69ff044186d3a51c31cdd27f/1jo62h8tc';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</html>
